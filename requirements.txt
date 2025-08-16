@@ -1,0 +1,9 @@
+streamlit
+supabase
+python-dotenv
+langchain
+langchain-community
+langchain-google-genai
+google-generativeai
+pypdf
+docx2txt

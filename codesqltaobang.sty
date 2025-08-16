@@ -1,0 +1,63 @@
+-- 1. Xóa sạch cũ để tránh xung đột (mã của bạn, rất tốt!)
+DROP FUNCTION IF EXISTS public.match_documents(jsonb, int, vector);
+DROP FUNCTION IF EXISTS public.match_documents(vector);
+DROP TABLE IF EXISTS public.documents;
+
+-- 2. Bật extension cần thiết
+create extension if not exists pgcrypto;
+create extension if not exists vector;
+
+-- 3. Tạo bảng documents với kích thước vector ĐÚNG
+create table
+  public.documents (
+    id uuid default gen_random_uuid () not null,
+    content text null,
+    metadata jsonb null,
+    embedding vector(768) null, -- <<-- ĐÃ SỬA: 768 cho Google Gemini/embedding-001
+    constraint documents_pkey primary key (id)
+  );
+
+-- 4. Hàm gốc: 3 tham số (đã sửa kích thước vector)
+create or replace function public.match_documents (
+  filter jsonb,
+  match_count int,
+  query_embedding vector(768) -- <<-- ĐÃ SỬA
+)
+returns table (
+  id uuid,
+  content text,
+  metadata jsonb,
+  similarity float
+)
+language sql stable
+as $$
+  select
+    d.id,
+    d.content,
+    d.metadata,
+    1 - (d.embedding <=> query_embedding) as similarity
+  from public.documents d
+  where (filter is null or filter = '{}'::jsonb or d.metadata @> filter)
+  order by d.embedding <=> query_embedding
+  limit match_count;
+$$;
+
+-- 5. Wrapper function: 1 tham số (đã sửa kích thước vector)
+create or replace function public.match_documents (
+  query_embedding vector(768) -- <<-- ĐÃ SỬA
+)
+returns table (
+  id uuid,
+  content text,
+  metadata jsonb,
+  similarity float
+)
+language sql stable
+as $$
+  select *
+  from public.match_documents(
+    '{}'::jsonb,   -- filter mặc định rỗng
+    5,             -- mặc định lấy top 5
+    query_embedding
+  );
+$$;
