@@ -146,8 +146,8 @@ chunker = SemanticChunker(
 
 ### Liên hệ
 - **Developer**: Duy
-- **GitHub**: [Repository Link]
-- **Email**: [Your Email]
+- **GitHub**: [https://github.com/thaytoiyeucoay]
+- **Email**: [duy.bk1608@gmail.com]
 
 ### Báo lỗi
 Tạo issue trên GitHub với thông tin:
@@ -158,4 +158,4 @@ Tạo issue trên GitHub với thông tin:
 
 ---
 
-**Made with ❤️ for AI Trợ Giảng Toán Tin**
+**Made with ❤️ for AI Của Khánh Duy Bùi**
