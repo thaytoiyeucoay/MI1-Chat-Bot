@@ -1,0 +1,31 @@
+Các định lý về hàm liên tục
+
+      Định lý 1.2. Nếu f ( x ) liên tục trên khoảng (a, b) mà giá trị f ( xo ), xo ∈ (a, b) dương
+      (hay âm) thì tồn tại một lân cận U ( xo ) sao cho ∀ x ∈ U ( xo ), f ( x ) cũng dương hay âm.
+      Hình ảnh hình học.
+
+      Định lý 1.3. Nếu f ( x ) liên tục trên đoạn [ a, b] thì nó bị chặn trên đoạn đó. Hình ảnh
+      hình học.
+
+      Định lý 1.4. Nếu f ( x ) liên tục trên đoạn [ a, b] thì nó đạt được GTLN, NN trên đoạn
+      này. Hình ảnh hình học.
+
+
+      * Liên tục đều, hình ảnh hình học của liên tục đều.
+
+      Định lý 1.5. (Định lý Cantor)
+      Nếu f ( x ) liên tục trên [ a, b] thì nó liên tục đều trên đó (thay [ a, b] bằng khoảng ( a, b)
+      thì định lý không còn đúng). Mô tả hình học.
+
+      Định lý 1.6. (Định lý Cauchy)
+      Nếu f ( x ) liên tục trên đoạn [ a, b] và có f (a). f (b) < 0 thì ∃α ∈ ( a, b) để f (α) = 0.
+
+
+      Nêu một ví dụ, nêu ứng dụng dùng để thu hẹp khoảng nghiệm của phương trình.
+      Hình ảnh hình học.
+
+      Hệ quả 1.1. Nếu f ( x ) liên tục trên đoạn [ a, b] , A = f (a) 6= B = f (b) thì nó nhận
+      mọi giá trị trung gian giữa A và B.
+
+      Hệ quả 1.2. Cho f ( x ) liên tục trên [ a, b] , m, M lần lượt là các GTNN, LN của hàm số
+      trên đoạn này thì [ m; M] là tập giá trị của hàm số.
